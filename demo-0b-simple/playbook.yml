@@ -1,0 +1,4 @@
+- hosts: all
+  tasks:
+    - name: install Nginx
+      apt: name=nginx update_cache=yes state=present

@@ -1,0 +1,75 @@
+# file: /etc/nginx/conf.d/default.conf
+#
+#
+# proxy for Node.js app
+#
+# @see https://engineering.gosquared.com/optimising-nginx-node-js-and-networking-for-heavy-workloads
+#
+
+upstream app_nodejs {
+    server 127.0.0.1:3000  max_fails=0 fail_timeout=10s;
+    keepalive 512;
+}
+
+
+
+server {
+    listen                80;
+    server_name           localhost;
+    server_tokens         off;
+    client_max_body_size  16M;
+    keepalive_timeout     10;
+
+
+    #
+    # trust connections from internal addresses;
+    # useful for packet inputs from load balancers or CDNs
+    # (e.g., Linode NodeBalancer, Amazon ELB)
+    #
+    #------> set_real_ip_from      192.168.0.0/16;
+    real_ip_header        X-Forwarded-For;
+
+
+    #
+    # proxy for Node.js app
+    #
+    location / {
+
+        # use this when packet inputs are from load balancers or CDNs
+        #proxy_set_header X-Forwarded-For  $http_x_forwarded_for;
+
+        # use this when packet inputs are directly from real clients;
+        #   "This variable contains the value of the `X-Forwarded-For`
+        #   request header, followed by the remote address of the client.
+        #   Both values are separated by a comma.
+        #   If the `X-Forwarded-For` request header is unavailable,
+        #   the variable only contains the client remote address."
+        proxy_set_header X-Forwarded-For  $proxy_add_x_forwarded_for;
+
+        proxy_set_header X-Real-IP        $remote_addr;
+        proxy_set_header Host             $http_host;
+        proxy_set_header X-NginX-Proxy    true;
+
+        proxy_headers_hash_bucket_size    1024;
+        proxy_headers_hash_max_size       512;
+
+        proxy_set_header   Connection "";
+        proxy_http_version 1.1;
+ 
+        proxy_pass http://app_nodejs;
+        proxy_redirect off;
+        proxy_next_upstream error timeout http_500 http_502 http_503 http_504;
+    }
+
+
+
+    #error_page  404              /404.html;
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
+

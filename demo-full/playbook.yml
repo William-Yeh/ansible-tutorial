@@ -1,0 +1,35 @@
+- hosts: all
+  sudo: True
+
+  roles:
+    - geerlingguy.git
+    - williamyeh.nginx
+    - williamyeh.nodejs
+    - project_deploy
+    - williamyeh.init-installer
+
+  vars:
+
+    project_root: "/opt/app"
+    project_deploy_strategy: git
+    project_git_repo: "https://github.com/ccoenraets/react-trader.git"
+    project_has_npm: true
+    project_copy_previous_npm_modules: true
+
+    nginx_conf_others:
+      app_1:
+        src: "templates/app.nginx.conf.j2"
+        dest: "app.conf"
+
+    init_sysv:
+      app_1:
+        src: "templates/app.sysvinit.sh.j2"
+        dest: "app"
+    #init_upstart:
+    #  app_1:
+    #    src: "templates/app.upstart.conf.j2"
+    #    dest: "app.conf"
+
+  tasks:
+    - name: start the app
+      service: name=app state=started enabled=yes

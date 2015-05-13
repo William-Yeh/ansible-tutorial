@@ -1,0 +1,9 @@
+[ec2-host]
+111.222.333.444  ansible_ssh_user=ubuntu
+
+[gce-host]
+111.222.333.444
+
+[azure-host]
+111.222.333.444
+

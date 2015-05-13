@@ -1,0 +1,9 @@
+- hosts: all
+  sudo: True
+
+  roles:
+    - nginx
+
+  vars:
+    worker_processes: auto
+    worker_connections: 10240

@@ -1,0 +1,70 @@
+Vagrant.configure(2) do |config|
+
+    config.vm.define "main", primary: true do |node|
+        node.vm.box = "ubuntu/trusty64"
+        node.vm.provision "ansible" do |ansible|
+            ansible.playbook = "playbook.yml"
+        end
+        node.vm.provider "virtualbox" do |v|
+            v.customize ["modifyvm", :id, "--memory", "256"]
+        end
+    end
+
+
+    config.vm.define "precise" do |node|
+        node.vm.box = "ubuntu/precise64"
+        node.vm.provision "ansible" do |ansible|
+            ansible.playbook = "playbook.yml"
+        end
+        node.vm.provider "virtualbox" do |v|
+            v.customize ["modifyvm", :id, "--memory", "256"]
+        end
+    end
+
+
+    config.vm.define "jessie" do |node|
+        node.vm.box = "debian/jessie64"
+        node.vm.provision "ansible" do |ansible|
+            ansible.playbook = "playbook.yml"
+        end
+        node.vm.provider "virtualbox" do |v|
+            v.customize ["modifyvm", :id, "--memory", "256"]
+        end
+    end
+
+
+    config.vm.define "wheezy" do |node|
+        node.vm.box = "debian/wheezy64"
+        node.vm.provision "ansible" do |ansible|
+            ansible.playbook = "playbook.yml"
+        end
+        node.vm.provider "virtualbox" do |v|
+            v.customize ["modifyvm", :id, "--memory", "256"]
+        end
+    end
+
+
+    config.vm.define "centos7" do |node|
+        node.vm.box = "chef/centos-7.1"
+        node.vm.provision "ansible" do |ansible|
+            ansible.playbook = "playbook.yml"
+            ansible.verbose = "vvv"
+        end
+        node.vm.provider "virtualbox" do |v|
+            v.customize ["modifyvm", :id, "--memory", "256"]
+        end
+    end
+
+
+    config.vm.define "centos6" do |node|
+        node.vm.box = "chef/centos-6.6"
+        node.vm.provision "ansible" do |ansible|
+            ansible.playbook = "playbook.yml"
+            ansible.verbose = "vvv"
+        end
+        node.vm.provider "virtualbox" do |v|
+            v.customize ["modifyvm", :id, "--memory", "256"]
+        end
+    end
+
+end

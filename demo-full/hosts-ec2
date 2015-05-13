@@ -1,0 +1,2 @@
+[ec2-host]
+111.222.333.444  ansible_ssh_user=ubuntu

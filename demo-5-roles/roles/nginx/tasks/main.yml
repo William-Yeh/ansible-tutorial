@@ -1,0 +1,13 @@
+- name: delegate to APT system for installation
+  include: use-apt.yml
+  when: ansible_pkg_mgr == "apt"
+
+- name: delegate to YUM system for installation
+  include: use-yum.yml
+  when: ansible_pkg_mgr == "yum"
+
+
+- name: copy Nginx configuration
+  template: src=../templates/nginx.conf.j2  dest=/etc/nginx/nginx.conf
+  notify:
+    - restart nginx

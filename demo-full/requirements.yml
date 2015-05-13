@@ -1,0 +1,17 @@
+---
+
+- src: williamyeh.nginx
+  path: roles/
+
+- src: williamyeh.nodejs
+  path: roles/
+
+- src: geerlingguy.git
+  path: roles/
+
+- src: https://github.com/William-Yeh/ansible-project_deploy
+  name: project_deploy
+  path: roles/
+
+- src: williamyeh.init-installer
+  path: roles/

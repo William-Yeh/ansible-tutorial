@@ -1,0 +1,8 @@
+- name: install libselinux-python binary for Ansible to work
+  yum: name=libselinux-python state=present
+
+- name: add Nginx official repository for CentOS
+  copy: src=../files/nginx.repo.centos dest=/etc/yum.repos.d/nginx.repo
+
+- name: install Nginx
+  yum: name=nginx  update_cache=yes  state=present

@@ -1,0 +1,5 @@
+---
+
+- src: williamyeh.nginx
+  name: nginx
+  path: roles/

@@ -1,0 +1,20 @@
+- name: install add-apt-repository binary for Ansible to work
+  apt: name=python-software-properties state=present update_cache=yes
+
+- name: add Nginx stable repository (deb)
+  apt_repository: >
+    repo='deb http://nginx.org/packages/{{ ansible_distribution|lower }}/ {{ ansible_distribution_release|lower }} nginx'
+    state=present
+
+- name: add Nginx stable repository (deb-src)
+  apt_repository: >
+    repo='deb-src http://nginx.org/packages/{{ ansible_distribution|lower }}/ {{ ansible_distribution_release|lower }} nginx'
+    state=present
+
+- name: add Nginx.org key
+  apt_key: >
+    url=http://nginx.org/keys/nginx_signing.key
+    state=present
+
+- name: install Nginx
+  apt: name=nginx update_cache=yes state=present
