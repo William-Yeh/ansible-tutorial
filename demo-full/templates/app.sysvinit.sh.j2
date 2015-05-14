@@ -1,9 +1,15 @@
 #!/bin/bash
 #
-# myapp daemon
-# chkconfig: 345 20 80
-# description: myapp daemon
-# processname: myapp
+### BEGIN INIT INFO
+# Provides:          app
+# Required-Start:    $all
+# Required-Stop:     $all
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: starts myapp daemon
+# Description:       starts myapp daemon
+### END INIT INFO
+
 #
 # @see http://werxltd.com/wp/2012/01/05/simple-init-d-script-template/
 #
