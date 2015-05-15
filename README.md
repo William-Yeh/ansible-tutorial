@@ -1,17 +1,29 @@
 A Gentle Introduction to Ansible
 ===
 
-A talk to be given on [Modern Web 2015, Taipei](http://modernweb.tw/) (2015-05-15) by William Yeh.
+A talk to be given at [Modern Web 2015, Taipei](http://modernweb.tw/) (2015-05-15) by William Yeh.
+
+Forty minutes presentation, with some live demos with Vagrant and IaaS instances (e.g., EC2, Google Compute Engine).
 
 
 ## Summary
 
-Ansible tutorial: a gentle introduction and a set of working examples for [Ansible](https://github.com/ansible/ansible).
+A gentle introduction and a set of working examples for [Ansible](https://github.com/ansible/ansible).
+
+
+Ansible positions itself as an “IT automation system”, but only the “*configuration management*” subset is discussed here.
 
 
 ## Slides
 
 To be announced.
+
+
+## Lab materials
+
+The following figure illustrates the mapping between each `demo-*` directory and associated topic in the slides:
+
+![Demo roadmap](demo-roadmap.jpg)
 
 
 ## Preparation
@@ -26,7 +38,7 @@ Before experiment with the lab material, complete the following environment setu
    Or, read the article "[Playing VMs with Vagrant](http://www.codedata.com.tw/social-coding/vagrant-tutorial-2-playing-vm-with-vagrant/)" (in Traditional Chinese) for more information.
 
 
-2. Install Ansible client:
+2. Install [Ansible](https://github.com/ansible/ansible) client:
 
    ... using Homebrew mechanism (on Mac):
 
