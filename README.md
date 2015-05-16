@@ -16,7 +16,7 @@ Ansible positions itself as an “IT automation system”, but only the “*conf
 
 ## Slides
 
-To be announced.
+Online: http://bit.ly/ansible-slide
 
 
 ## Lab materials
