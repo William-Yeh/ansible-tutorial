@@ -1,22 +1,26 @@
 A Gentle Introduction to Ansible
 ===
 
-A talk to be given at [Modern Web 2015, Taipei](http://modernweb.tw/) (2015-05-15) by William Yeh.
 
-Forty minutes presentation, with some live demos with Vagrant and IaaS instances (e.g., EC2, Google Compute Engine).
+## Background
+
+Companion lab materials for my talk given at [Modern Web 2015, Taipei](http://modernweb.tw/) (2015-05-16) by William Yeh.
+
+Forty minutes presentation, with some live demos on Vagrant and IaaS instances (e.g., EC2, Google Compute Engine).
 
 
-## Summary
+## Topic
 
-A gentle introduction and a set of working examples for [Ansible](https://github.com/ansible/ansible).
-
+A gentle introduction to [Ansible](https://github.com/ansible/ansible), using a set of working examples: Nginx, Node.js, and React.
 
 Ansible positions itself as an “IT automation system”, but only the “*configuration management*” subset is discussed here.
 
 
 ## Slides
 
-Online: http://bit.ly/ansible-slide
+View online: http://bit.ly/ansible-slide
+
+Due to time constaints (40 minutes), not all details are explained in the talk and slides.  If more details needs to be explained, together with all labs demonstrated, 2 hours may be more appropriated.
 
 
 ## Lab materials
