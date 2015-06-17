@@ -15,6 +15,10 @@ A gentle introduction to [Ansible](https://github.com/ansible/ansible), using a 
 
 Ansible positions itself as an “IT automation system”, but only the “*configuration management*” subset is discussed here.
 
+## Videos
+
+View online: https://youtu.be/FboNN3OSq60
+
 
 ## Slides
 
