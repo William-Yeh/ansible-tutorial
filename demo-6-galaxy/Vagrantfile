@@ -45,7 +45,7 @@ Vagrant.configure(2) do |config|
 
 
     config.vm.define "centos7" do |node|
-        node.vm.box = "chef/centos-7.1"
+        node.vm.box = "bento/centos-7.1"
         node.vm.provision "ansible" do |ansible|
             ansible.playbook = "playbook.yml"
             ansible.verbose = "vvv"
@@ -57,7 +57,7 @@ Vagrant.configure(2) do |config|
 
 
     config.vm.define "centos6" do |node|
-        node.vm.box = "chef/centos-6.6"
+        node.vm.box = "bento/centos-6.6"
         node.vm.provision "ansible" do |ansible|
             ansible.playbook = "playbook.yml"
             ansible.verbose = "vvv"
